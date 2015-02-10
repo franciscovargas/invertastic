@@ -37,9 +37,11 @@ Options
 Invertastic accepts the following arguments:
 
  --size <N>
+
  	specify size N for NxN square matrix to be inverted
 
 [--check] 
+
  	if specified, the code will multiply the original matrix by
 	the resulting inverse, compare this product (element-wise)
 	with the expected identity matrix, and print the maximum
@@ -47,15 +49,19 @@ Invertastic accepts the following arguments:
 
 
 [--input <full path to input file>] 
-        if specified, the code will read the input matrix from the 
-	specified file. If not specified to allow performance benchmarking 
- 	and testing the code will create an SPD matrix on-the-fly using
-	random numbers.
+
+	if specified, the code will read the input matrix from the
+        specified file. The format should be binary with NxN 8-byte
+        (double precision) entries and no headers. If not specified to
+        allow performance benchmarking and testing the code will
+        create an SPD matrix on-the-fly using random numbers.
 
 
 [--output <full path to output file>] 
-	if specified, the code will write the output matrix to the 
-	specified file.
+
+	if specified, the code will write the binary output matrix to
+	the specified file. The format will be binary with NxN 8-byte
+	(double precision) entries and no headers.
 
 
 Compilation
