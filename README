@@ -69,7 +69,7 @@ make clean
 make
 
 To configure for other machines, the Makefile should be edited to
-specify the apprpriate paths.
+specify the appropriate paths.
 
 
 
