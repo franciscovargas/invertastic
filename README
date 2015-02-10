@@ -78,7 +78,7 @@ specify the appropriate paths.
 Execution
 ---------------
 
-This distribution contains a sample job script, run.sh, for running
+This distribution contains a sample job script, run_archer.sh, for running
 invertastic on ARCHER using the PBS job submission system.
 
 
