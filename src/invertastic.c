@@ -501,11 +501,19 @@ int main(int argc, char *argv[])
     pdgeadd(&trans, &matSize, &matSize, &dONE, matrix, &ONE, &ONE, desc, &dZERO, matrix_save, &ONE, &ONE,desc);
 
     // populate upper triangle from transpose 
-    for (i = 0; i < nLocCol; i++) { 
-      for (j = 0; j < i; j++){ 
-	matrix[i* nLocRow+j]=matrix_save[i* nLocRow+j];
+    for (i = 0; i < nLocCol; i++) {
+      //get global col index
+      int globCol = indxl2g(i,NBCol,myPCol,nPCol); 
+      for (j = 0; j < nLocRow; j++){
+	//get global row index
+	int globRow = indxl2g(j,NBRow,myPRow,nPRow); 
+
+	if (globRow<globCol)
+	  matrix[i* nLocRow+j]=matrix_save[i* nLocRow+j];
+
       }
     }
+
 
     MPI_Barrier(MPI_COMM_WORLD);
 
