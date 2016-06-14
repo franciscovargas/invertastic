@@ -2,7 +2,7 @@ INVERTASTIC README
 ==================
 
 -----------------
-Copyright 2015 The University of Edinburgh
+Copyright 2016 The University of Edinburgh
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,11 +25,10 @@ Invertastic is a utility for performing large-scale dense SPD matrix
 inversions on parallel computers. For full details, please see
 
 A. Gray, "Invertastic: Large-scale Dense Matrix Inversion", 
-submitted to Bioinformatics (2015), 
-preprint available at www.archer.ac.uk/documentation/white-papers/
+ARCHER Whitepaper available at www.archer.ac.uk/documentation/white-papers/
 
 This software is openly available as a central package on the UK
-ARCHER national supercomputing facility at /home/y07/y07/itastic
+ARCHER national supercomputing facility at /work/y07/y07/itastic
 
 Options
 ----------------
