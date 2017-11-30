@@ -15,7 +15,7 @@
 # limitations under the License.  
 #
 
-CC=cc
+CC=mpiicc
 CFLAGS=-O3 -I$(MKLROOT)/include -openmp 
 
 
@@ -34,7 +34,7 @@ SRC= invertastic.c
 OBJ=	$(SRC:.c=.o)
 
 .c.o: 
-	$(CC) $(CFLAGS) -c $<
+	$(CC) $(CFLAGS) -c $< -o $(OBJ)
 
 
 all:	$(EXE)
