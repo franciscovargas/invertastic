@@ -272,9 +272,11 @@ int main(int argc, char *argv[])
    
    double *matrix = (double*) calloc (nLocRow*nLocCol,sizeof(double));
    double *matrix_save = (double*) malloc (nLocRow*nLocCol*sizeof(double));
+   int *ipiv = (int*) calloc( nLocRow, sizeof(int) );
+   double *work = (double*) calloc(nLocRow, sizeof(double));
+   int *iwork = (int*) calloc( nLocRow, sizeof(int) );
    
-   
-   if ((!matrix) || (!matrix_save)) {
+   if ( (!matrix) || (!matrix_save) || (!ipiv) || (!work) || (!iwork) ) {
      if (master) printf("Error. Memory allocation failed.\n");
      MPI_Abort(MPI_COMM_WORLD,1);
    }
@@ -394,7 +396,7 @@ int main(int argc, char *argv[])
   time0 = omp_get_wtime();
 
   //Replace matrix with it's Cholesky factorisation
-    pdpotrf_( &uplo, &matSize, matrix, &ONE,&ONE,desc, &info );
+   pdgetrf_( &matSize, &matSize, matrix, &ONE, &ONE, desc, ipiv, &info );
    if(info!=0){
      if (master) printf("Error: Cholesky factorisation - return value %d \n",info);
      MPI_Abort(MPI_COMM_WORLD,1);
@@ -406,7 +408,9 @@ int main(int argc, char *argv[])
 
   time0 = omp_get_wtime();
   //Replace (cholesky factorisation of) matrix with it's inverse
-  pdpotri_( &uplo, &matSize, matrix, &ONE,&ONE, desc, &info );
+  printf(">>>> %d %lu  %lu n", matSize, nLocRow, nLocCol);
+  int negOne = -1; // c is stoopid.
+  pdgetri_( &matSize, matrix, &ONE,&ONE, desc, ipiv, work, &negOne, iwork, &negOne, &info );
 
    if(info!=0){
      if (master) printf("Error: Inverse calculation - return value %d \n",info);
