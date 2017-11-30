@@ -273,8 +273,8 @@ int main(int argc, char *argv[])
    double *matrix = (double*) calloc (nLocRow*nLocCol,sizeof(double));
    double *matrix_save = (double*) malloc (nLocRow*nLocCol*sizeof(double));
    int *ipiv = (int*) calloc( nLocRow, sizeof(int) );
-   double *work = (double*) calloc(nLocRow, sizeof(double));
-   int *iwork = (int*) calloc( nLocRow, sizeof(int) );
+   double *work = (double*) calloc( 10, sizeof(double));
+   int *iwork = (int*) calloc( 10, sizeof(int) );
    
    if ( (!matrix) || (!matrix_save) || (!ipiv) || (!work) || (!iwork) ) {
      if (master) printf("Error. Memory allocation failed.\n");
@@ -395,22 +395,34 @@ int main(int argc, char *argv[])
 
   time0 = omp_get_wtime();
 
-  //Replace matrix with it's Cholesky factorisation
-   pdgetrf_( &matSize, &matSize, matrix, &ONE, &ONE, desc, ipiv, &info );
-   if(info!=0){
+  //Replace matrix with it's LU Decomposition
+  pdgetrf_( &matSize, &matSize, matrix, &ONE, &ONE, desc, ipiv, &info );
+  if(info!=0){
      if (master) printf("Error: Cholesky factorisation - return value %d \n",info);
      MPI_Abort(MPI_COMM_WORLD,1);
-   }
+  }
 
   time1 = omp_get_wtime();
   double time_save=time1-time0;
   if(master) printf("pdpotrf: %1.5f seconds\n",time1-time0);
 
   time0 = omp_get_wtime();
-  //Replace (cholesky factorisation of) matrix with it's inverse
+  //Replace (LU decomposition of) matrix with it's inverse
   printf(">>>> %d %lu  %lu n", matSize, nLocRow, nLocCol);
   int negOne = -1; // c is stoopid.
   pdgetri_( &matSize, matrix, &ONE,&ONE, desc, ipiv, work, &negOne, iwork, &negOne, &info );
+  int lwork = (int ) work[0];
+  int liwork = (int) iwork[0];
+  double *workq = (double*) calloc( lwork, sizeof(double));
+  int *iworkq = (int*) calloc(liwork , sizeof(int) );
+  
+   if (  (!workq) || (!iworkq) ) {
+      if (master) printf("Error. Memory allocation failed.\n");
+      MPI_Abort(MPI_COMM_WORLD,1);
+   }
+   pdgetri_( &matSize, matrix, &ONE,&ONE, desc, ipiv, workq, &lwork, iworkq, &liwork, &info );
+
+
 
    if(info!=0){
      if (master) printf("Error: Inverse calculation - return value %d \n",info);
