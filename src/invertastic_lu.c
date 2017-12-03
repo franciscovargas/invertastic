@@ -269,14 +269,25 @@ int main(int argc, char *argv[])
    // ----allocate memory for local part of matrix---
 
    //if(master) printf("local malloc size: %d \n",nLocRow*nLocCol*sizeof(double));
-   
+   printf("Block alloc start \n");
    double *matrix = (double*) calloc (nLocRow*nLocCol,sizeof(double));
    double *matrix_save = (double*) malloc (nLocRow*nLocCol*sizeof(double));
    int *ipiv = (int*) calloc( nLocRow, sizeof(int) );
    double *work = (double*) calloc( 10, sizeof(double));
    int *iwork = (int*) calloc( 10, sizeof(int) );
+
+   if( !matrix ){
+      printf("matrix alloc failed\n");
+   }
+
+   if( !matrix_save )
+   {
+      printf("matrix_save alloc failed\n");
+   }
    
    if ( (!matrix) || (!matrix_save) || (!ipiv) || (!work) || (!iwork) ) {
+     printf("block alloc error \n");
+     printf("nLocRow: %lu , nLocCol: %lu, sizeOfdouble: %zu \n", nLocRow, nLocCol, sizeof(double));
      if (master) printf("Error. Memory allocation failed.\n");
      MPI_Abort(MPI_COMM_WORLD,1);
    }

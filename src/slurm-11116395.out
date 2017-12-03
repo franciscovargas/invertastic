@@ -1,0 +1,92 @@
+=================================================
+             *** Invertastic ***
+  (C) The University of Edinburgh (2015)
+  Please see the README for more information 
+=================================================
+
+Running with 16 tasks, decomposed in a 4x4 grid
+
+Matrix Size is 500000x500000 
+
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 125056 , nLocCol: 125056, sizeOfdouble: 8 
+Block alloc start 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 124960 , nLocCol: 124928, sizeOfdouble: 8 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 125056 , nLocCol: 124928, sizeOfdouble: 8 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+Block alloc start 
+Error. Memory allocation failed.
+Block alloc start 
+matrix alloc failed
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 125056 , nLocCol: 124928, sizeOfdouble: 8 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 125056 , nLocCol: 125056, sizeOfdouble: 8 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 11
+Block alloc start 
+matrix alloc failed
+Block alloc start 
+nLocRow: 124960 , nLocCol: 125056, sizeOfdouble: 8 
+Block alloc start 
+Block alloc start 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+nLocRow: 124960 , nLocCol: 125056, sizeOfdouble: 8 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+matrix_save alloc failed
+block alloc error 
+nLocRow: 125056 , nLocCol: 124960, sizeOfdouble: 8 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 7
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 4
+matrix_save alloc failed
+block alloc error 
+nLocRow: 125056 , nLocCol: 125056, sizeOfdouble: 8 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 8
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 124960 , nLocCol: 124960, sizeOfdouble: 8 
+block alloc error 
+nLocRow: 125056 , nLocCol: 124960, sizeOfdouble: 8 
+block alloc error 
+nLocRow: 124928 , nLocCol: 124960, sizeOfdouble: 8 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 9
+nLocRow: 125056 , nLocCol: 125056, sizeOfdouble: 8 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 5
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 10
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 6
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 14
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1

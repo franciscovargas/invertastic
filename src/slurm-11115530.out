@@ -1,0 +1,35 @@
+=================================================
+             *** Invertastic ***
+  (C) The University of Edinburgh (2015)
+  Please see the README for more information 
+=================================================
+
+Running with 4 tasks, decomposed in a 2x2 grid
+
+Matrix Size is 1000000x1000000 
+
+Block alloc start 
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 499968 , nLocCol: 499968, sizeOfdouble: 8 
+block alloc error 
+nLocRow: 500032 , nLocCol: 499968, sizeOfdouble: 8 
+nLocRow: 499968 , nLocCol: 500032, sizeOfdouble: 8 
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2
+Block alloc start 
+matrix alloc failed
+matrix_save alloc failed
+block alloc error 
+nLocRow: 500032 , nLocCol: 500032, sizeOfdouble: 8 
+Error. Memory allocation failed.
+application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0

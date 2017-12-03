@@ -1,0 +1,6 @@
+*.o
+*.csv
+*.txt
+invertastic
+invertastic_lu
+invertastic_lu_slim
